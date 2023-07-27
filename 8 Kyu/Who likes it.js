@@ -10,6 +10,19 @@
 // ["Alex", "Jacob", "Mark", "Max"]  -->  "Alex, Jacob and 2 others like this"
 // Note: For 4 or more names, the number in "and 2 others" simply increases.
 
+// step 1: create a function that takes in an array call it likes
+// step 2: create a conditional that will check the length of the array
+// step 3: return the conditional
+// step 4: create a variable that will hold the string no one likes this 
+// step 5: create a variable that will hold the string likes this
+// step 6: create a variable that will hold the string and like this
+// step 7: create a variable that will hold the string and others like this
+// step 8: create a variable that will hold the string others like this
+// step 9: create a variable that will hold the string and like this
+// step 10: create a variable that will hold the string and like this
+
+
+
 let names = [
     [],
     ['Peter'],
