@@ -3,80 +3,37 @@
 // Note: you will always receive a valid array containing a random assortment of direction letters ('n', 's', 'e', or 'w' only). It will never give you an empty array (that's not a walk, that's standing still!).
 
 
-// step 1: understand the question
-// - write a function that takes in an array of strings
-// - the strings will be either 'n', 's', 'e', or 'w'
-// - the function should return true if the array of strings will take you exactly 10 minutes to walk
-// - the function should return false if the array of strings will take you more or less than 10 minutes to walk
-// - the function should return false if the array of strings will not return you to your starting point
 
 
-
-// step 2: create sample inputs and outputs
-// input: ['n', 'e', 's', 'w']
-// output: true
-
-// input: ['n', 'e', 's', 'w', 'n', 'e', 's', 'w', 'n', 'e']
-// output: false
-
-// input
-// output
-
-// step 3: create a strategy
-// - create a variable called 'x' and set it equal to 0
-// - create a variable called 'y' and set it equal to 0
-// - loop through the array of strings
-// - if the string is 'n', add 1 to 'y'
-// - if the string is 's', subtract 1 from 'y'
-// - if the string is 'e', add 1 to 'x'
-// - if the string is 'w', subtract 1 from 'x'
-// - if the array of strings is 10 strings long and 'x' and 'y' are both equal to 0, return true
-// - else return false
-
-let compassWalk = ['n', 'e', 's', 'w'];
-// step 4: create the function
 function isValidWalk(walk) {
-    let x = 0;
-    let y = 0;
-    
-  for (let i = 0; i < walk.length; i++) {
-    if (walk[i] === 'n') {
-      y++;
-    } else if (walk[i] === 's') {
-      y--;
-    } else if (walk[i] === 'e') {
-      x++;
-    } else if (walk[i] === 'w') {
-      x--;
+    //insert brilliant code here
+    let n = 0;
+    let s = 0;
+    let e = 0;
+    let w = 0;
+    if (walk.length === 10) {
+        for (let i = 0; i < walk.length; i++) {
+            if (walk[i] === 'n') {
+                n++;
+            } else if (walk[i] === 's') {
+                s++;
+            } else if (walk[i] === 'e') {
+                e++;
+            } else if (walk[i] === 'w') {
+                w++;
+            }
+        }
+        if (n === s && e === w) {
+            return true;
+        } else {
+            return false;
+        }
+    } else {
+        return false;
     }
-  }
-
-  if (walk.length === 10 && x === 0 && y === 0) {
-    return true;
-  } else {
-    return false;
-  }
 }
 
-// step 5: refactor
+console.log(isValidWalk(['n', 's', 'n', 's', 'n', 's', 'n', 's', 'n', 's']), 'true');
 
-function isValidWalk(walk) {
-    let x = 0;
-    let y = 0;
-    
-    for (let i = 0; i < walk.length; i++) {
-        if (walk[i] === 'n') y++;
-        else if (walk[i] === 's') y--;
-        else if (walk[i] === 'e') x++;
-        else if (walk[i] === 'w') x--;
-    }
-    
-    return walk.length === 10 && x === 0 && y === 0;
-    }
+console.log(isValidWalk(['w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w', 'e', 'w']), 'false');
 
-// step 6: test
-
-console.log(isValidWalk(compassWalk)); // true
-console.log(isValidWalk(['n', 'e', 's', 'w', 'n', 'e', 's', 'w', 'n', 'e'])); // false
-console.log(isValidWalk(['n', 'e', 's', 'w', 'n', 'e', 's', 'w', 'n', 'e', 'n'])); // false
-console.log(isValidWalk(['n', 'e', 's', 'w', 'n', 'e', 's', 'w', 'n', 'e', 's'])); // true
